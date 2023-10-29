@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vector Art</title>
+    <!-- Bootstrap is used for styling the page. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <style>
+        .text-gradient {
+            background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+    <!-- Petitie-vue is used to make the page . -->
+    <script src="https://unpkg.com/petite-vue" defer></script>
+    <script type="module">
+        import {createApp} from 'https://unpkg.com/petite-vue?module'
+
+        createApp({
+            images: [
+                '1_Waterfall.svg',
+                '2_Sunset.svg',
+                '3_Torch.svg',
+                '4_Sunset2.svg',
+                '5_SodaCan.svg',
+                '6_WaterLily.svg',
+            ].reverse(),
+            reverse() {
+                this.images = this.images.slice().reverse();
+            }
+        }).mount()
+    </script>
+<body>
+
+<div id="container" class="container text-center">
+    <h1 class="text-center p-4">
+        <span class="text-gradient d-inline">Vector Art
+            <span @click="reverse()"><i class="bi bi-arrow-down-up"></i></span>
+        </span>
+    </h1>
+
+    <img v-for="image in images" v-bind:src="'images/' + image" class="img-fluid shadow-lg p-4 mb-5 bg-body rounded">
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>
